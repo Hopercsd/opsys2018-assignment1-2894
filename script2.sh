@@ -13,7 +13,9 @@ while read line; do
 	git clone --quiet $line && echo $line ": Cloning OK" || echo $line": Cloning FAILED"
 done <repositories
 
-cd ~/Desktop/assignments
+res=$(find ./ -type d -name "assignments")
+cd "$res"
+
 for d in */ ;do
 	echo "$d"
 	res1=$(find ./ -mindepth 2 -maxdepth 2 -type d | wc -l)
